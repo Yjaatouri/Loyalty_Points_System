@@ -1,5 +1,6 @@
 CREATE DATABASE loyaltyPoints ;
 use loyaltyPoints;
+
 CREATE TABLE users (
 
 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -63,30 +64,7 @@ UPDATE goods SET name =
     END
 WHERE id BETWEEN 1 AND 19;
 
-UPDATE goods 
-SET name = CASE id
-    WHEN 1  THEN 'iPhone 14 128GB - Noir Minuit'
-    WHEN 2  THEN 'Samsung Galaxy S23 Ultra 256GB - Vert'
-    WHEN 3  THEN 'Google Pixel 7a 128GB - Charbon'
-    WHEN 4  THEN 'MacBook Air M2 13" 256GB - Gris Sidéral'
-    WHEN 5  THEN 'Lenovo Yoga 7i 14" Intel i7 - Bleu'
-    WHEN 6  THEN 'Philips Airfryer XXL 6.2L - Noir'
-    WHEN 7  THEN 'Nespresso Vertuo Next - Argent'
-    WHEN 8  THEN 'Lampe de Table LED Moderne - Or Rose'
-    WHEN 9  THEN 'Lot de 4 Coussins Déco Velours - Gris'
-    WHEN 10 THEN 'Nike Air Force 1 - Blanc / Blanc'
-    WHEN 11 THEN 'Adidas Forum Low - Blanc / Bleu'
-    WHEN 12 THEN 'Casio Edifice Chrono - Acier'
-    WHEN 13 THEN 'Fossil Carlie Mini - Cuir Rose'
-    WHEN 14 THEN 'Ray-Ban Wayfarer Classic - Noir'
-    WHEN 15 THEN 'Calvin Klein CK One Eau de Toilette 100ml'
-    WHEN 16 THEN 'Paco Rabanne Lady Million 80ml'
-    WHEN 17 THEN 'The Ordinary Niacinamide 10% + Zinc 1% - 30ml'
-    WHEN 18 THEN 'Manette PS5 DualSense - Rouge Cosmique'
-    WHEN 19 THEN 'Logitech G Pro X Superlight Souris Gaming - Noir'
-    ELSE name
-END
-WHERE name IS NULL OR name = '';
+
 
 INSERT INTO goods (category, image_link, quantity, price, rate) VALUES
 
@@ -158,7 +136,7 @@ INSERT INTO users (email, password_hash, name, total_points, earned_points) VALU
 ('khalid.ben@gmail.com', 'khalid2025secure','Khalid Bensouda',       2180, 3180),
 ('sara.mounir@icloud.com','sara_strong_99',  'Sara Mounir',             80, 1080),
 ('omar.harrak@yahoo.fr', 'omar_0600loyal',   'Omar Harrak',           4120, 5620),
-('yahyajaatouri2000@gmail.com','000000','yahya jaatouri','0','200000');
+('yahyajaatouri2000@gmail.com','000000','yahya jaatouri',0,200000);
 
 INSERT INTO rewards (name, points_required, description, stock) VALUES
 ('100 DH voucher – Jumia',                 1200, 'Code promo valable sur Jumia Maroc',               18),
@@ -203,3 +181,30 @@ INSERT INTO points_transactions (user_id, type, amount, description, balance_aft
 (5, 'earned',   1200, 'Parrainage × 3 + bonus premium',               3700),
 (5, 'earned',   1920, 'Achats réguliers sur 4 mois (bonus fidélité)', 5620),
 (5, 'redeemed',-1500, 'Parfum 50 ml + goodie bag',                    4120);
+
+UPDATE goods 
+SET name = CASE id
+    WHEN 1  THEN 'iPhone 14 128GB - Noir Minuit'
+    WHEN 2  THEN 'Samsung Galaxy S23 Ultra 256GB - Vert'
+    WHEN 3  THEN 'Google Pixel 7a 128GB - Charbon'
+    WHEN 4  THEN 'MacBook Air M2 13" 256GB - Gris Sidéral'
+    WHEN 5  THEN 'Lenovo Yoga 7i 14" Intel i7 - Bleu'
+    WHEN 6  THEN 'Philips Airfryer XXL 6.2L - Noir'
+    WHEN 7  THEN 'Nespresso Vertuo Next - Argent'
+    WHEN 8  THEN 'Lampe de Table LED Moderne - Or Rose'
+    WHEN 9  THEN 'Lot de 4 Coussins Déco Velours - Gris'
+    WHEN 10 THEN 'Nike Air Force 1 - Blanc / Blanc'
+    WHEN 11 THEN 'Adidas Forum Low - Blanc / Bleu'
+    WHEN 12 THEN 'Casio Edifice Chrono - Acier'
+    WHEN 13 THEN 'Fossil Carlie Mini - Cuir Rose'
+    WHEN 14 THEN 'Ray-Ban Wayfarer Classic - Noir'
+    WHEN 15 THEN 'Calvin Klein CK One Eau de Toilette 100ml'
+    WHEN 16 THEN 'Paco Rabanne Lady Million 80ml'
+    WHEN 17 THEN 'The Ordinary Niacinamide 10% + Zinc 1% - 30ml'
+    WHEN 18 THEN 'Manette PS5 DualSense - Rouge Cosmique'
+    WHEN 19 THEN 'Logitech G Pro X Superlight Souris Gaming - Noir'
+    ELSE name
+END
+WHERE name IS NULL OR name = '';
+
+DROP DATABASE loyaltyPoints;
