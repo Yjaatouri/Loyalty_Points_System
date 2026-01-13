@@ -207,4 +207,3 @@ SET name = CASE id
 END
 WHERE name IS NULL OR name = '';
 
-DROP DATABASE loyaltyPoints;
