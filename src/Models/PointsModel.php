@@ -50,6 +50,7 @@ class PointsModel{
         $stmt = $this->db->prepare("SELECT earned_points FROM users WHERE id = ? ");
         $stmt->execute([$userId]);
         return $stmt->fetchColumn() ?? 0;
+        
     }
 
     public function expired($userId , $amount , $description){
